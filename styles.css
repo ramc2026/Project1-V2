@@ -14,14 +14,18 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #ff6d6d;
+  background: #0b1220;
   color: var(--text);
 }
 
 .hero-header {
-  background: linear-gradient(135deg, var(--bg), #152f5c);
-  padding: 3rem 1.5rem;
-  text-align: center;
+  background:
+    linear-gradient(rgba(8, 24, 47, 0.45), rgba(8, 24, 47, 0.45)),
+    url("images/top-banner.png") center/100% 100% no-repeat;
+  background-color: #08182f;
+  min-height: 360px;
+  padding: 3.5rem 2rem;
+  text-align: left;
 }
 
 .hero-header h1 {
@@ -31,16 +35,40 @@ body {
 }
 
 .hero-header p {
-  margin: 1rem auto 0;
+  margin: 1rem 0 0;
   max-width: 640px;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.home-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.home-button:hover {
+  background: rgba(255,255,255,.2);
+  transform: translateY(-2px);
 }
 
 main {
   padding: 2rem 1.5rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.about-me-slide .placeholder {
+  min-height: 300px;
+  height: 300px;
+  background: rgba(255,255,255,.07);
+  font-size: 1.15rem;
 }
 
 .slide {
@@ -142,7 +170,7 @@ main {
 .placeholder {
   width: 100%;
   height: 100%;
-  min-height: 240px;
+  min-height: 300px;
   border-radius: 20px;
   background: rgba(255,255,255,.06);
   border: 1px dashed rgba(255,255,255,.2);
@@ -200,9 +228,57 @@ main {
   display: block;
 }
 
+.gallery-portal-link {
+  display: block;
+  text-decoration: none;
+}
+
+.gallery-portal-image {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-portal-link:hover .gallery-portal-image {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.25);
+}
+
 .gallery-image.placeholder {
   min-height: 220px;
   height: 220px;
+}
+
+.art-page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.artwork-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.artwork-card h3 {
+  margin: 1.25rem 1.5rem 0.5rem;
+  font-size: 1.25rem;
+  color: #eaf1ff;
+}
+
+.artwork-card p {
+  margin: 0 1.5rem 1.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.artwork-image {
+  min-height: 360px;
+  height: 360px;
 }
 
 .gallery-card h3 {
@@ -215,6 +291,13 @@ main {
   margin: 0 1.5rem 1.5rem;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.gallery-card:nth-child(1) h3,
+.gallery-card:nth-child(1) p,
+.gallery-card:nth-child(2) h3,
+.gallery-card:nth-child(2) p {
+  text-align: center;
 }
 
 .text-link {
@@ -255,5 +338,18 @@ main {
 
   .interest-cards {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-2x3 {
+    grid-template-columns: 1fr;
+  }
+
+  .art-page-grid {
+    max-width: 100%;
+  }
+
+  .about-me-slide .placeholder {
+    min-height: 220px;
+    height: 220px;
   }
 }
