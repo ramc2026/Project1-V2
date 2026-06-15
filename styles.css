@@ -402,6 +402,171 @@ main {
   box-shadow: 0 16px 30px rgba(0,0,0,.25);
 }
 
+.sandman-intro {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(120deg, rgba(93, 140, 255, 0.18), rgba(24, 216, 176, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 1.5rem;
+}
+
+.sandman-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  letter-spacing: 0.02em;
+}
+
+.sandman-intro p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.sandman-slideshow {
+  position: relative;
+  max-width: 900px;
+  min-height: 420px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(93, 140, 255, 0.2), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(24, 216, 176, 0.18), transparent 42%),
+    rgba(12, 29, 59, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sandman-slideshow-block {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.sandman-slideshow-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: #edf3ff;
+  letter-spacing: 0.02em;
+}
+
+.sandman-slide-card {
+  position: absolute;
+  inset: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(17, 40, 79, 0.95), rgba(9, 22, 44, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(14%) scale(0.96);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sandman-slide-card.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.sandman-slide-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #edf3ff;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.sandman-slide-card p {
+  margin: 0;
+  max-width: 560px;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.sandman-placeholder {
+  width: min(320px, 70%);
+  min-height: 230px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #f7fbff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(93, 140, 255, 0.27) 0 16px,
+      rgba(24, 216, 176, 0.22) 16px 32px,
+      rgba(255, 255, 255, 0.1) 32px 48px
+    );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 0 35px rgba(24, 216, 176, 0.3);
+}
+
+.sandman-controls {
+  max-width: 900px;
+  margin: 1rem auto 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sandman-arrow {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(18, 42, 82, 0.85);
+  color: #f5f8ff;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sandman-arrow:hover {
+  transform: translateY(-2px);
+  background: rgba(39, 88, 168, 0.95);
+}
+
+.sandman-indicator-bar {
+  background: rgba(10, 25, 50, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.45rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.sandman-indicator {
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.22);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sandman-indicator:hover {
+  transform: scaleY(1.2);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.sandman-indicator.is-active {
+  background: linear-gradient(90deg, #5d8cff, #18d8b0);
+}
+
 .gallery-image.placeholder {
   min-height: 220px;
   height: 220px;
@@ -647,6 +812,24 @@ main {
     min-height: 220px;
     height: 220px;
   }
+
+  .sandman-slideshow {
+    min-height: 460px;
+  }
+
+  .sandman-slide-card {
+    inset: 0.75rem;
+    padding: 1rem;
+  }
+
+  .sandman-controls {
+    gap: 0.5rem;
+  }
+
+  .sandman-arrow {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -665,5 +848,29 @@ main {
 
   .award-row-triple {
     grid-template-columns: 1fr;
+  }
+
+  .sandman-slideshow {
+    min-height: 500px;
+  }
+
+  .sandman-placeholder {
+    width: 100%;
+    min-height: 190px;
+    font-size: 0.95rem;
+  }
+
+  .sandman-slideshow-title {
+    font-size: 1.1rem;
+  }
+
+  .sandman-controls {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .sandman-arrow {
+    width: 100%;
+    border-radius: 14px;
   }
 }
