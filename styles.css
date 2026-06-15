@@ -343,6 +343,13 @@ main {
   height: 360px;
 }
 
+.activity-card .gallery-image.uil-image-wrap,
+.activity-card .gallery-image.naqt-image-wrap,
+.activity-card .gallery-image.rock-image-wrap {
+  min-height: 0;
+  height: auto;
+}
+
 .activity-card h3 {
   margin: 1.25rem 1.5rem 0.5rem;
   font-size: 1.25rem;
@@ -353,6 +360,57 @@ main {
   margin: 0 1.5rem 1.5rem;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.quizbowl-awards {
+  margin: 0 1.5rem 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.quizbowl-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.award-row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.award-row-single {
+  grid-template-columns: 1fr;
+}
+
+.award-row-triple {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.award-slot {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 0.75rem;
+}
+
+.award-slot h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #eaf1ff;
+  line-height: 1.4;
+}
+
+.award-image-placeholder {
+  min-height: 130px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  border: 1px dashed rgba(255,255,255,.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255,255,255,.72);
+  padding: 0.75rem;
 }
 
 .artwork-card-large {
@@ -507,6 +565,10 @@ main {
   }
 
   .activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-row-triple {
     grid-template-columns: 1fr;
   }
 }
