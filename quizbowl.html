@@ -34,35 +34,66 @@
         <p>I am heavily involved in quizbowl and I feel this EC has strengthened my discipline, confidence on the buzzer, and depth in history/geography while pushing me to keep growing in science categories. Competing consistently has taught me how to prepare better, collaborate with teammates, and perform under pressure.</p>
 
         <div class="quizbowl-awards">
-          <div class="award-row award-row-single">
-            <article class="award-slot">
-              <h4>Individual Awards: Bellaire Invitational - 5th Place History</h4>
-              <div class="award-image-placeholder">Individual Awards Image Placeholder</div>
-            </article>
-          </div>
+          <section class="quizbowl-slideshow-block" data-slideshow="regular-season">
+            <h4>Regular Season Tournaments</h4>
 
-          <div class="award-row award-row-triple">
-            <article class="award-slot">
-              <h4>Team Placement: Houston Fall Novice - 1st Place Team</h4>
-              <div class="award-image-placeholder">Team Placement Image Placeholder</div>
-            </article>
-            <article class="award-slot">
-              <h4>Team Placement: Kickoff Classic - 2nd Place Team</h4>
-              <div class="award-image-placeholder">Team Placement Image Placeholder</div>
-            </article>
-            <article class="award-slot">
-              <h4>Team Placement: Longhorn Invitational - 3rd Place Team</h4>
-              <div class="award-image-placeholder">Team Placement Image Placeholder</div>
-            </article>
-          </div>
+            <section class="quizbowl-slideshow" aria-label="Regular season tournaments slideshow">
+              <article class="quizbowl-slide-card is-active">
+                <img src="images/tcqtcvhs.jpg" alt="TCQT Carnegie Vanguard 2nd Place Runner Up" class="quizbowl-slide-photo">
+                <p>TCQT Carnegie Vanguard Invitational - 2nd Place</p>
+              </article>
+              <article class="quizbowl-slide-card">
+                <img src="images/teamphoto.jpg" alt="TCQT CVHS Runner Up Team Photo" class="quizbowl-slide-photo">
+                <p>Dual Team Photo with Strake Jesuit</p>
+              </article>
+              <article class="quizbowl-slide-card">
+                <img src="images/tqbastate.jpg" alt="27th TQBA State Championship" class="quizbowl-slide-photo">
+                <p>27th TQBA State Championship - 9th Place</p>
+              </article>
+              <article class="quizbowl-slide-card">
+                <img src="images/medalists.jpg" alt="TCQT Strake Housewrite Photo with Other Medalist" class="quizbowl-slide-photo quizbowl-slide-photo-shrink">
+                <p>House Write 3rd Place Medalist (Individual)</p>
+              </article>
+            </section>
 
-          <div class="award-row award-row-single">
-            <article class="award-slot">
-              <h4>National Placement: HSNCT - Top 80 Finish</h4>
-              <div class="award-image-placeholder">National Placements Image Placeholder</div>
-            </article>
-          </div>
+            <div class="quizbowl-controls" aria-label="Regular season slideshow controls">
+              <button class="quizbowl-arrow quizbowl-prev" type="button" aria-label="Previous regular season slide">&#8592;</button>
+              <div class="quizbowl-indicator-bar" role="tablist" aria-label="Regular season slide selector">
+                <button class="quizbowl-indicator is-active" type="button" data-index="0" aria-label="Go to regular season slide 1"></button>
+                <button class="quizbowl-indicator" type="button" data-index="1" aria-label="Go to regular season slide 2"></button>
+                <button class="quizbowl-indicator" type="button" data-index="2" aria-label="Go to regular season slide 3"></button>
+                <button class="quizbowl-indicator" type="button" data-index="3" aria-label="Go to regular season slide 4"></button>
+              </div>
+              <button class="quizbowl-arrow quizbowl-next" type="button" aria-label="Next regular season slide">&#8594;</button>
+            </div>
+          </section>
+
+          <section class="quizbowl-slideshow-block" data-slideshow="nationals">
+            <h4>National Tournaments</h4>
+
+            <section class="quizbowl-slideshow" aria-label="National tournaments slideshow">
+              <article class="quizbowl-slide-card is-active">
+                <img src="images/msnct.jpg" alt="MSNCT Nationals" class="quizbowl-slide-photo">
+                <p> 2025 MSNCT - 8th place out of 160</p>
+              </article>
+              <article class="quizbowl-slide-card">
+                <img src="images/hsnct.jpg" alt="HSNCT Nationals" class="quizbowl-slide-photo">
+                <p>2026 HSNCT - 65th out of 320</p>
+              </article>
+            </section>
+
+            <div class="quizbowl-controls" aria-label="National slideshow controls">
+              <button class="quizbowl-arrow quizbowl-prev" type="button" aria-label="Previous national slide">&#8592;</button>
+              <div class="quizbowl-indicator-bar" role="tablist" aria-label="National slide selector">
+                <button class="quizbowl-indicator is-active" type="button" data-index="0" aria-label="Go to national slide 1"></button>
+                <button class="quizbowl-indicator" type="button" data-index="1" aria-label="Go to national slide 2"></button>
+              </div>
+              <button class="quizbowl-arrow quizbowl-next" type="button" aria-label="Next national slide">&#8594;</button>
+            </div>
+          </section>
         </div>
+
+        <p>My best accomplishment so far is my 2026 HSNCT result: 65th out of 320 teams. Even though my 2025 MSNCT result was 8th out of 160, the HSNCT field was significantly larger and the tournament content was more difficult, so placing in the top quarter there reflects stronger overall skill, endurance, and adaptation against tougher competition.</p>
       </article>
     </section>
   </main>
@@ -73,5 +104,46 @@
       <p><a class="text-link" href="activities.html">Back to activities page</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const blocks = Array.from(document.querySelectorAll('.quizbowl-slideshow-block'));
+
+      blocks.forEach(function (block) {
+        const slides = Array.from(block.querySelectorAll('.quizbowl-slide-card'));
+        const indicators = Array.from(block.querySelectorAll('.quizbowl-indicator'));
+        const prevBtn = block.querySelector('.quizbowl-prev');
+        const nextBtn = block.querySelector('.quizbowl-next');
+
+        let currentIndex = 0;
+
+        function setActiveSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+
+          slides.forEach(function (slide, idx) {
+            slide.classList.toggle('is-active', idx === currentIndex);
+          });
+
+          indicators.forEach(function (dot, idx) {
+            dot.classList.toggle('is-active', idx === currentIndex);
+          });
+        }
+
+        prevBtn.addEventListener('click', function () {
+          setActiveSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', function () {
+          setActiveSlide(currentIndex + 1);
+        });
+
+        indicators.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            setActiveSlide(Number(dot.dataset.index));
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
