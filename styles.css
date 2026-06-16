@@ -1179,6 +1179,105 @@ main {
   padding: 1rem;
 }
 
+.wildlife-mini-slideshow {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.wildlife-mini-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #eef4ff;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10%);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 179, 107, 0.2) 0 20px,
+      rgba(93, 140, 255, 0.2) 20px 40px,
+      rgba(255, 255, 255, 0.08) 40px 60px
+    );
+}
+
+.wildlife-mini-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.wildlife-mini-slide-photo {
+  padding: 0;
+}
+
+.wildlife-mini-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.wildlife-mini-slide-photo .wildlife-mini-photo {
+  object-fit: cover;
+}
+
+.wildlife-mini-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(20, 32, 50, 0.85);
+  color: #f5f8ff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.wildlife-mini-prev {
+  left: 0.5rem;
+}
+
+.wildlife-mini-next {
+  right: 0.5rem;
+}
+
+.wildlife-mini-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.6rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.35rem;
+  z-index: 2;
+}
+
+.wildlife-mini-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.34);
+  cursor: pointer;
+}
+
+.wildlife-mini-dot.is-active {
+  background: linear-gradient(90deg, #ffb36b, #ff7f50);
+}
+
 .gallery-2x3 .gallery-card:nth-child(1) h3,
 .gallery-2x3 .gallery-card:nth-child(1) p,
 .gallery-2x3 .gallery-card:nth-child(2) h3,
