@@ -25,42 +25,51 @@
   </header>
 
   <main>
-    <section class="gallery-grid about-gallery-stack">
-      <article class="gallery-card">
-        <div class="gallery-image">
-          <img src="images/cvhs.png" alt="Carnegie Vanguard High School" class="gallery-photo">
+    <section class="about-slideshow-block" data-slideshow="about-me-slideshow">
+      <h2 class="about-slideshow-title">About Me Slideshow</h2>
+      <section class="about-slideshow" aria-label="About me slideshow">
+        <article class="about-slide-card is-active" data-slide="1">
+          <img class="about-slide-photo" src="images/cvhs.png" alt="Carnegie Vanguard High School">
+          <h3>Background</h3>
+          <p>My name is Ram Chitrapu. I am an incoming sophomore at Carnegie Vanguard High School.</p>
+        </article>
+
+        <article class="about-slide-card" data-slide="2">
+          <img class="about-slide-photo" src="images/vulture.jpg" alt="Vulture">
+          <h3>Favorite Hobby</h3>
+          <p>It varies either between artwork or nature observing. I am leaning towards nature observing as of right now, but I still try to do artworks now and then. This is a picture of some vultures I found a few years ago.</p>
+        </article>
+
+        <article class="about-slide-card" data-slide="3">
+          <img class="about-slide-photo" src="images/bhaji.png" alt="Pav bhaji">
+          <h3>Favorite Food</h3>
+          <p>I don't have a specific favorite food, but I enjoy this one dish called pav bhaji. It is grilled bread with butter and served with a vegetable mash on the side.</p>
+        </article>
+
+        <article class="about-slide-card" data-slide="4">
+          <img class="about-slide-photo" src="images/dark-knight.png" alt="The Dark Knight">
+          <h3>Favorite Movie</h3>
+          <p>My favorite film is the Dark Knight. It is a really grounded film, very realistic and intense. It is also one of the few films that I have watched myself; I'm not a movie person.</p>
+        </article>
+
+        <article class="about-slide-card" data-slide="5">
+          <img class="about-slide-photo" src="images/musicalbums.png" alt="Music albums">
+          <h3>Music Taste</h3>
+          <p>I don't have a specific favorite genre, although I've listened to a few different types. It ranges from soft indie game soundtracks, 80's rock, whatever sub-genre it might be, or occasional country. These are some albums that I have listened to.</p>
+        </article>
+      </section>
+
+      <div class="about-controls" aria-label="Slideshow controls">
+        <button class="about-arrow about-prev" type="button" aria-label="Previous slide">&#8592;</button>
+        <div class="about-indicator-bar" role="tablist" aria-label="Slide selector">
+          <button class="about-indicator is-active" type="button" data-index="0" aria-label="Go to slide 1"></button>
+          <button class="about-indicator" type="button" data-index="1" aria-label="Go to slide 2"></button>
+          <button class="about-indicator" type="button" data-index="2" aria-label="Go to slide 3"></button>
+          <button class="about-indicator" type="button" data-index="3" aria-label="Go to slide 4"></button>
+          <button class="about-indicator" type="button" data-index="4" aria-label="Go to slide 5"></button>
         </div>
-        <h3>Background</h3>
-        <p> My name is Ram Chitrapu. I am an incoming sophomore at Carnegie Vanguard High School. </p>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-image">
-          <img src="images/vulture.jpg" alt="Vulture" class="gallery-photo">
-        </div>
-        <h3>Favorite Hobby</h3>
-        <p> It varies either between artwork or nature observing. I am leaning towards nature observing as of right now, but I still try to do artworks now and then. This is a picture of some vultures I found a few years ago. </p>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-image">
-          <img src="images/bhaji.png" alt="Pav bhaji" class="gallery-photo">
-        </div>
-        <h3>Favorite Food</h3>
-        <p> I don't have a specific favorite food, but I enjoy this one dish called pav bhaji. It is grilled bread with butter and served with a vegetable mash on the side. </p> 
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-image">
-          <img src="images/dark-knight.png" alt="The Dark Knight" class="gallery-photo">
-        </div>
-        <h3>Favorite Movie</h3>
-        <p> My favorite film is the Dark Knight. It is a really grounded film, very realistic and intense. It is also one of the few films that I have watched myself; I'm not a movie person.</p>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-image">
-          <img src="images/musicalbums.png" alt="Music albums" class="gallery-photo">
-        </div>
-        <h3>Music Taste</h3>
-        <p> I don't have a specific favorite genre, although I've listened to a few different types. It ranges from soft indie game soundtracks, 80's rock, whatever sub-genre it might be, or occasional country. These are some albums that I have listened to. </p>
-      </article>
+        <button class="about-arrow about-next" type="button" aria-label="Next slide">&#8594;</button>
+      </div>
     </section>
   </main>
 
@@ -70,5 +79,46 @@
       <p><a class="text-link" href="index.html">Return Link Placeholder</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const blocks = Array.from(document.querySelectorAll('.about-slideshow-block'));
+
+      blocks.forEach(function (block) {
+        const slides = Array.from(block.querySelectorAll('.about-slide-card'));
+        const indicators = Array.from(block.querySelectorAll('.about-indicator'));
+        const prevBtn = block.querySelector('.about-prev');
+        const nextBtn = block.querySelector('.about-next');
+
+        let currentIndex = 0;
+
+        function setActiveSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+
+          slides.forEach(function (slide, idx) {
+            slide.classList.toggle('is-active', idx === currentIndex);
+          });
+
+          indicators.forEach(function (dot, idx) {
+            dot.classList.toggle('is-active', idx === currentIndex);
+          });
+        }
+
+        prevBtn.addEventListener('click', function () {
+          setActiveSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', function () {
+          setActiveSlide(currentIndex + 1);
+        });
+
+        indicators.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            setActiveSlide(Number(dot.dataset.index));
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
