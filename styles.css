@@ -226,6 +226,24 @@ main {
   margin: 0 auto;
 }
 
+.clickable-legend {
+  background: rgba(255, 179, 107, 0.08);
+  border: 1px solid rgba(255, 179, 107, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.clickable-legend p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.clickable-legend strong {
+  color: var(--accent);
+}
+
 .about-me-slide .placeholder {
   min-height: 300px;
   height: 300px;
@@ -327,6 +345,33 @@ main {
   width: 100%;
   max-width: 420px;
   text-decoration: none;
+  position: relative;
+}
+
+.placeholder-link::after {
+  content: "→";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 179, 107, 0.9);
+  color: #131923;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.placeholder-link:hover::after {
+  transform: scale(1.1);
+  background: rgba(255, 179, 107, 1);
 }
 
 .placeholder {
@@ -459,6 +504,45 @@ main {
   display: block;
   text-decoration: none;
   max-width: 100%;
+  position: relative;
+}
+
+.gallery-portal-link::after {
+  content: "→";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 179, 107, 0.9);
+  color: #131923;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.gallery-portal-link:hover::after {
+  transform: scale(1.1);
+  background: rgba(255, 179, 107, 1);
+}
+
+.gallery-portal-link[href="#"]::after {
+  content: none;
+}
+
+.gallery-portal-link[href="#"] .gallery-portal-image {
+  cursor: default;
+}
+
+.gallery-portal-link[href="#"]:hover .gallery-portal-image {
+  transform: none;
+  box-shadow: none;
 }
 
 .gallery-portal-image {
@@ -871,16 +955,56 @@ main {
   flex-direction: column;
 }
 
+.activity-card a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.activity-card a::after {
+  content: "→";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 179, 107, 0.9);
+  color: #131923;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.activity-card a:hover::after {
+  transform: scale(1.1);
+  background: rgba(255, 179, 107, 1);
+}
+
+.activity-card a[href="#"]::after {
+  content: none;
+}
+
 .activity-card .gallery-image {
   min-height: 360px;
   height: 360px;
 }
 
-.activity-card .gallery-image.uil-image-wrap,
 .activity-card .gallery-image.naqt-image-wrap,
 .activity-card .gallery-image.rock-image-wrap {
   min-height: 0;
   height: auto;
+}
+
+.activity-card .gallery-image.uil-image-wrap {
+  min-height: 360px;
+  height: 360px;
 }
 
 .activity-card h3 {
@@ -1153,12 +1277,44 @@ main {
   height: 100%;
   text-decoration: none;
   color: inherit;
+  position: relative;
+}
+
+.gallery-card-link::after {
+  content: "→";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 179, 107, 0.9);
+  color: #131923;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.gallery-card-link:hover::after {
+  transform: scale(1.1);
+  background: rgba(255, 179, 107, 1);
 }
 
 .wildlife-sightings-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+.history-favorites-grid {
+  grid-template-columns: repeat(2, minmax(280px, 460px));
+  justify-content: center;
 }
 
 .wildlife-placeholder {
@@ -1229,6 +1385,10 @@ main {
 
 .wildlife-mini-slide-photo .wildlife-mini-photo {
   object-fit: cover;
+}
+
+.wildlife-mini-photo-birds1-flock {
+  object-position: center 8%;
 }
 
 .wildlife-mini-arrow {
@@ -1463,4 +1623,9 @@ main {
     width: 100%;
     border-radius: 14px;
   }
+}
+
+.science-favorites-grid {
+  grid-template-columns: repeat(2, minmax(280px, 460px));
+  justify-content: center;
 }
